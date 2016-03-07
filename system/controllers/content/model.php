@@ -401,6 +401,22 @@ class modelContent extends cmsModel{
             $field_class  = 'field'.string_to_camel('_', $field['type']);
             $field_parser = new $field_class(null, (isset($field['options']) ? array('options' => $field['options']) : null));
 
+			$add_fields = $field_parser->getAddFields();
+
+			if ($add_fields){
+
+				foreach ($add_fields as $name => $value){
+
+					$sql = "ALTER TABLE {#}{$content_table_name} ADD `{$field['name']}_{$name}` {$value['sql']}";
+					$this->db->query($sql);
+
+					if ($field['is_in_filter'] && $field_parser->allow_index && $value['allow_index']){
+						$this->db->addIndex($content_table_name, $field['name'] . '_' . $name);
+					}
+				}
+
+			}
+
             $sql = "ALTER TABLE {#}{$content_table_name} ADD `{$field['name']}` {$field_parser->getSQL()}";
             $this->db->query($sql);
 
@@ -720,6 +736,16 @@ class modelContent extends cmsModel{
 
         $this->delete($fields_table_name, $id);
         $this->reorder($fields_table_name);
+
+		$add_fields = $field['parser']->getAddFields();
+
+		if ($add_fields){
+			foreach ($add_fields as $name => $value){
+
+				$this->db->dropTableField($content_table_name, $field['name'] . '_' . $name);
+			}
+
+		}
 
         $this->db->dropTableField($content_table_name, $field['name']);
 

@@ -72,6 +72,14 @@
                                 </select>
                             <?php } ?>
 
+                            <?php if ($field['handler']->filter_type == 'city') { ?>
+                                <select name="filters[<?php echo $index; ?>][condition]">
+									<option value="co"><?php echo LANG_FILTER_COUNTRY; ?></option>
+									<option value="re"><?php echo LANG_FILTER_REGION; ?></option>
+									<option value="ci"><?php echo LANG_FILTER_CITY; ?></option>
+                                </select>
+                            <?php } ?>
+
                         </td>
                         <td>
                             <?php

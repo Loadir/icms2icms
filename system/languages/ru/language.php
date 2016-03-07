@@ -30,6 +30,9 @@
     define('LANG_FILTER_APPLY',              'Фильтровать');
     define('LANG_FILTER_URL',                'Ссылка');
     define('LANG_FILTER_SAVE_DIFF_ORDER',    'Сохранять различную сортировку');
+    define('LANG_FILTER_COUNTRY',            'Страна');
+    define('LANG_FILTER_REGION',             'Область');
+    define('LANG_FILTER_CITY',               'Город');
     define('LANG_SORTING_FIELD',             'Сортировка по полю');
     define('LANG_SORTING',                   'Сортировка');
     define('LANG_SORTING_ADD',               'Добавить правило');
@@ -73,6 +76,13 @@
     define('LANG_PARSER_NUMBER_UNITS',       'Единица измерения');
     define('LANG_PARSER_CITY',               'Город');
     define('LANG_PARSER_CITY_FILTER_HINT',   'ID города');
+    define('LANG_PARSER_CITY_CITY_NAME',     'Показывать название города');
+    define('LANG_PARSER_CITY_REGION_NAME',   'Показывать название области');
+    define('LANG_PARSER_CITY_COUNTRY_NAME',  'Показывать название страны');
+    define('LANG_PARSER_CITY_SELECT_COUNTRY','--Выберите страну--');
+    define('LANG_PARSER_CITY_SELECT_REGION', '--Выберите область--');
+    define('LANG_PARSER_CITY_SELECT_CITY',   '--Выберите город--');
+
     define('LANG_PARSER_CHECKBOX',           'Флаг');
     define('LANG_PARSER_TEXT',               'Текст');
     define('LANG_PARSER_TEXT_MAX_LEN',       'Максимальная длина');

@@ -30,6 +30,9 @@
     define('LANG_FILTER_APPLY',              'Apply');
     define('LANG_FILTER_URL',                'Link');
     define('LANG_FILTER_SAVE_DIFF_ORDER',    'Save different order');
+    define('LANG_FILTER_COUNTRY',            'Country');
+    define('LANG_FILTER_REGION',             'Region');
+    define('LANG_FILTER_CITY',               'City');
     define('LANG_SORTING_FIELD',             'Sort by field');
     define('LANG_SORTING',                   'Sorting');
     define('LANG_SORTING_ADD',               'Add rule');
@@ -74,6 +77,13 @@
 
     define('LANG_PARSER_CITY',               'City');
     define('LANG_PARSER_CITY_FILTER_HINT',   'City ID');
+    define('LANG_PARSER_CITY_CITY_NAME',     'Show the name of the city');
+    define('LANG_PARSER_CITY_REGION_NAME',   'Show the name of the region');
+    define('LANG_PARSER_CITY_COUNTRY_NAME',  'Show the name of the country');
+    define('LANG_PARSER_CITY_SELECT_COUNTRY','--Select a country--');
+    define('LANG_PARSER_CITY_SELECT_REGION', '--Select a region--');
+    define('LANG_PARSER_CITY_SELECT_CITY',   '--Select a city--');
+
     define('LANG_PARSER_CHECKBOX',           'Checkbox');
     define('LANG_PARSER_TEXT',               'Textarea');
     define('LANG_PARSER_TEXT_MAX_LEN',       'Max length');

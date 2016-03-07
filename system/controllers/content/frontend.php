@@ -146,10 +146,27 @@ class content extends cmsFrontend {
 		foreach($fields as $name => $field){
 
 			if (!$field['is_in_filter']) { continue; }
-			if (!$this->request->has($name)){ continue; }
 
+			$add_fields = $field['handler']->getAddFields();
+
+			$add_fields_in_request = false;
+
+			if ($add_fields) {
+				foreach ($add_fields as $n => $v) {
+
+					if (!$this->request->has($name . '_' . $n)){ continue; }
+
+					$value = $this->request->get($name . '_' . $n);
+					if (!$value) { continue; }
+
+					$add_fields_in_request = true;
+					$filters[$name . '_' . $n] = $value;
+				}
+			}
+
+			if (!$this->request->has($name) && !$add_fields_in_request){ continue; }
 			$value = $this->request->get($name, false, $field['handler']->getDefaultVarType(true));
-			if (!$value) { continue; }
+			if (!$value && !$add_fields_in_request) { continue; }
 
 			$this->model = $field['handler']->applyFilter($this->model, $value);
 			$filters[$name] = $value;

@@ -825,7 +825,6 @@ class cmsModel{
         if (!empty ($dataset['filters'])){
 
             foreach($dataset['filters'] as $filter){
-
                 if (($filter['value'] === '') && !in_array($filter['condition'], array('nn', 'ni'))) { continue; }
                 if (empty($filter['condition'])) { continue; }
 
@@ -850,6 +849,11 @@ class cmsModel{
                     // даты
                     case 'dy': $this->filterDateYounger($filter['field'], $filter['value']); break;
                     case 'do': $this->filterDateOlder($filter['field'], $filter['value']); break;
+
+                    // регионы
+					case 'co': $this->filterEqual($filter['field'] . '_country', $filter['value']); break;
+                    case 're': $this->filterEqual($filter['field'] . '_region', $filter['value']); break;
+                    case 'ci': $this->filterEqual($filter['field'], $filter['value']); break;
 
                 }
 

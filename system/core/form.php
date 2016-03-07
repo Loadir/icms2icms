@@ -303,6 +303,26 @@ class cmsForm {
                 // если поле отключено, пропускаем поле
                 if (in_array($name, $this->disabled_fields)){ continue; }
 
+				$add_fields = $field->getAddFields();
+
+				if ($add_fields){
+
+					foreach ($add_fields as $n => $v) {
+
+						$value = $request->get($name . '_' . $n, null, $field->getDefaultVarType());
+
+						$old_value = $item ? (isset($item[$name . '_' . $n]) ? $item[$name . '_' . $n] : null) : null;
+
+						$field->setItem($item);
+
+						$value = $field->store($value, $is_submitted, $old_value);
+
+						if ($value === false) { continue; }
+
+						$result[$name . '_' . $n] = $value;
+					}
+				}
+
                 $is_array = strpos($name, ':');
 
                 $value = $request->get($name, null, $field->getDefaultVarType());

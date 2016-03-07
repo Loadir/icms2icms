@@ -5,7 +5,7 @@
 
     if ($do=='add') { $this->setPageTitle(LANG_CP_DATASET_ADD, $ctype['title']); }
     if ($do=='edit') { $this->setPageTitle(LANG_CP_DATASET . ': ' . $dataset['title']); }
-    
+
     $this->addBreadcrumb(LANG_CP_SECTION_CTYPES, $this->href_to('ctypes'));
 
     if ($do=='add'){
@@ -124,14 +124,14 @@
         <legend><?php echo LANG_SORTING; ?></legend>
 
 		<div id="sortings"></div>
-		
+
         <div id="add_sorting" style="display:none">
             <?php echo LANG_SORTING_FIELD; ?>:
             <select></select>
             <a class="ajaxlink" href="javascript:submitSorting()"><?php echo LANG_ADD; ?></a> |
             <a class="ajaxlink" href="javascript:cancelSorting()"><?php echo LANG_CANCEL; ?></a>
-        </div>		
-		
+        </div>
+
 		<a id="add_sorting_link" class="ajaxlink" href="javascript:addSorting()"><?php echo LANG_SORTING_ADD; ?></a>
 
     </fieldset>
@@ -216,6 +216,12 @@
     <option value="do"><?php echo LANG_FILTER_DATE_OLDER; ?></option>
     <option value="nn"><?php echo LANG_FILTER_NOT_NULL; ?></option>
     <option value="ni"><?php echo LANG_FILTER_IS_NULL; ?></option>
+</select>
+
+<select id="conditions_city" style="display:none">
+    <option value="co"><?php echo LANG_FILTER_COUNTRY; ?></option>
+    <option value="re"><?php echo LANG_FILTER_REGION; ?></option>
+    <option value="ci"><?php echo LANG_FILTER_CITY; ?></option>
 </select>
 
 <script type="text/javascript">

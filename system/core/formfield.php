@@ -15,6 +15,8 @@ class cmsFormField {
     public $sql;
     public $allow_index = true;
 
+    public $add_fields = array();
+
     public $item = null;
 
     public $is_virtual = false;
@@ -115,6 +117,8 @@ class cmsFormField {
         return $this->sql;
 
     }
+
+    public function getAddFields(){ return $this->add_fields; }
 
     public function getRules(){ return $this->rules; }
 
