@@ -69,10 +69,10 @@ class modelUsers extends cmsModel{
 
         $this->useCache("users.user.{$id}");
 
-        $this->select("IFNULL(c.name, '')", 'city_name');
-        $this->select("IFNULL(c.id, 0)", 'city_id');
+//        $this->select("IFNULL(c.name, '')", 'city_name');
+//        $this->select("IFNULL(c.id, 0)", 'city_id');
         $this->select("u.nickname", 'inviter_nickname');
-        $this->joinLeft('geo_cities', 'c', 'c.id = i.city');
+//        $this->joinLeft('geo_cities', 'c', 'c.id = i.city');
         $this->joinLeft('{users}', 'u', 'u.id = i.inviter_id');
 
         if ($id){
@@ -88,10 +88,10 @@ class modelUsers extends cmsModel{
         $user['notify_options'] = cmsModel::yamlToArray($user['notify_options']);
         $user['privacy_options'] = cmsModel::yamlToArray($user['privacy_options']);
 
-        $user['city'] = $user['city_id'] ? array(
-            'id' => $user['city_id'],
-            'name' => $user['city_name'],
-        ) : false;
+//        $user['city'] = $user['city_id'] ? array(
+//            'id' => $user['city_id'],
+//            'name' => $user['city_name'],
+//        ) : false;
 
         $user['is_online'] = cmsUser::userIsOnline($user['id']);
 
@@ -225,7 +225,7 @@ class modelUsers extends cmsModel{
 
             $user['groups'] = !empty($user['groups']) ? $user['groups'] : array(DEF_GROUP_ID);
 
-            if (isset($user['city_id']) && !isset($user['city'])){ $user['city'] = $user['city_id']; }
+//            if (isset($user['city_id']) && !isset($user['city'])){ $user['city'] = $user['city_id']; }
 
             $success = $this->update('{users}', $id, $user);
 

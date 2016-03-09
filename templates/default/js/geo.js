@@ -120,9 +120,9 @@ icms.geo = (function ($) {
 
             for(var item_id in result.items){
 
-                var item_name = result.items[item_id];
+				if (!item_id) { continue; }
 
-                child_list.append( '<option value="'+ item_id +'">' + item_name +'</option>' );
+                child_list.append( '<option value="'+ item_id +'">' + result.items[item_id] +'</option>' );
 
             }
 

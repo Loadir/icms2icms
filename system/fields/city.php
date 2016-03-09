@@ -138,6 +138,10 @@ class fieldCity extends cmsFormField {
             $result[] = $countries[$city['country_id']];
         }
 
+		if (!$this->getOption('city_name') && !$this->getOption('region_name') && !$this->getOption('country_name')){
+            $result[] = $city['name'];
+        }
+
         return htmlspecialchars(implode(', ', $result));
     }
 
